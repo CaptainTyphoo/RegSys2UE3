@@ -1,2 +1,2 @@
 5.1) Ruhelagen ok ?
-
+5.3) Woher kommt der zweier in der Lyapunov Funktion
