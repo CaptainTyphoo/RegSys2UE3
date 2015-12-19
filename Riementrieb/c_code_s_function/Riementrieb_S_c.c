@@ -210,7 +210,7 @@ static void mdlInitializeConditions(SimStruct *S)
 	/* continuous states */
 	real_T *x_ = ssGetContStates(S);
 	/* parameter */
-	// const real_T *p_0 = (const real_T*) mxGetPr(ssGetSFcnParam(S,0));
+	/* const real_T *p_0 = (const real_T*) mxGetPr(ssGetSFcnParam(S,0));*/
 
 	omegam = omegam_0;
 	iq = iq_0;
@@ -231,7 +231,7 @@ static void mdlDerivatives(SimStruct *S)
 	const real_T *u_0 = (const real_T*) ssGetInputPortSignal(S, 0);
 	const real_T *u_1 = (const real_T*) ssGetInputPortSignal(S, 1);
     /* parameter */
-	// const real_T *p_1 = (const real_T*) mxGetPr(ssGetSFcnParam(S,1));
+	/* const real_T *p_1 = (const real_T*) mxGetPr(ssGetSFcnParam(S,1));*/
 
     double t10,t14,t16,t3,t6;
 
@@ -260,7 +260,7 @@ static void mdlOutputs(SimStruct *S, int_T tid)
 	real_T *y_1 = (real_T*) ssGetOutputPortSignal(S, 1);
 	real_T *y_2 = (real_T*) ssGetOutputPortSignal(S, 2);
     /* parameter */
-	// const real_T *p_1 = (const real_T*) mxGetPr(ssGetSFcnParam(S,1));
+	/* const real_T *p_1 = (const real_T*) mxGetPr(ssGetSFcnParam(S,1));*/
 
 
     y_x1 = omegam;
