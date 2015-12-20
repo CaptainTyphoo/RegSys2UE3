@@ -130,7 +130,7 @@ Phi = 2.715e-2
 </Group>
 </Section>
 <Section collapsed="false" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title>
-<Text-field style="Heading 1" layout="Heading 1">A 5.1</Text-field></Title>
+<Text-field style="Heading 1" layout="Heading 1">A 5.1 Analyse des AI-Systems</Text-field></Title>
 <Group labelreference="L236" drawlabel="true" applyint="true" applyrational="true">
 <Input>
 <Text-field prompt="&gt; " style="Maple Input" layout="Normal">xx := &lt; omegam, iq, id, epsilon, omegal&gt;;</Text-field>
@@ -348,7 +348,7 @@ Phi = 2.715e-2
 </Group>
 </Section>
 <Section collapsed="false" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title>
-<Text-field style="Heading 1" layout="Heading 1">A 5.2</Text-field></Title>
+<Text-field style="Heading 1" layout="Heading 1">A 5.2 Feedforwardlinearisierung</Text-field></Title>
 <Group labelreference="L298" drawlabel="true" applyint="true" applyrational="true">
 <Input>
 <Text-field style="Text" layout="Normal">h1:</Text-field>
@@ -579,7 +579,7 @@ u = DD_inv * (vv - bb);</Text-field>
 </Group>
 </Section>
 <Section collapsed="false" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title>
-<Text-field style="Heading 1" layout="Heading 1">A 5.3</Text-field></Title>
+<Text-field style="Heading 1" layout="Heading 1"><Font encoding="UTF-8">A 5.3 Stabilit\303\244t der Ruhelage</Font></Text-field></Title>
 <Group labelreference="L315" drawlabel="true" applyint="true" applyrational="true">
 <Input>
 <Text-field prompt="&gt; " style="Maple Input" layout="Normal">V := 2 * int(cr1*epsilon+cr3*epsilon^3,epsilon=0..epsilon) + 1/2 * Il * omegal^2;</Text-field>
@@ -616,11 +616,9 @@ u = DD_inv * (vv - bb);</Text-field>
 <Text-field style="Text" layout="Normal"><Font encoding="UTF-8">Damit die L\303\266sungskurven f\303\274r t \342\211\245 0 in Y bleibt, muss \316\265 = 0 sein. Daraus folgt dass die gr\303\266\303\237te positiv invariante Teilmenge von Y die Menge M = { 0 } ist, womit die asymptotische Stabilit\303\244t der Ruhelage bewiesen ist. Da V(x) radial unbeschr\303\244nkt ist, gilt diese Aussage auch global.</Font></Text-field>
 </Input>
 </Group>
-<Group labelreference="L324" drawlabel="true" applyint="true" applyrational="true">
-<Input>
-<Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
-</Input>
-</Group>
+</Section>
+<Section collapsed="false" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title>
+<Text-field style="Heading 1" layout="Heading 1">A 5.4</Text-field></Title>
 <Group labelreference="L325" drawlabel="true" applyint="true" applyrational="true">
 <Input>
 <Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
