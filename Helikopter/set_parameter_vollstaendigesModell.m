@@ -5,7 +5,7 @@ p.m_AH    =   1.014597734609539;
 p.m_RR    =   0.105913353249518;
 p.m_RL    =   0.105913353249518;
 
-% Abstände a_ij zwischen Koordinatensystem i und j, angegeben im
+% Abstï¿½nde a_ij zwischen Koordinatensystem i und j, angegeben im
 % Koordinatensystem i, sowie in m:
 p.a01x    =     0;
 p.a01y    =     0;
@@ -23,14 +23,14 @@ p.a35x    =     0.177700000000000;
 p.a35y    =     0;
 p.a35z    =     0;
 
-% Massenträgheitstensoren in kgm²:
+% Massentrï¿½gheitstensoren in kgmï¿½:
 p.I_Mast  =   1.0e-003 *[0 0 0;0 0 0;0 0 0.506651629854281];
 p.I_Arm   =   [0.001690300134652  -0.015435150902738  -0.004397154191646;  -0.015435150902738   0.230498614338468  -0.000413920522536;  -0.004397154191646  -0.000413920522536   0.231719591075445];
 p.I_AH    =   [0.002309948654049                   0                   0;                   0   0.031684992287930                   0;             0                   0   0.031641273347001];
 p.I_RR    =   1.0e-004 *[   0.446768408911236                   0                   0; 0   0.446768408911236                   0;   0                   0   0.235434798459118];
 p.I_RL    =   1.0e-004 *[   0.446768408911236                   0                   0; 0   0.446768408911236                   0;   0                   0   0.235434798459118];
 
-% Schwerpunktsabstände bezüglich des eigenen körperfesten
+% Schwerpunktsabstï¿½nde bezï¿½glich des eigenen kï¿½rperfesten
 % Koordinatensystems in m: 
 p.x_Mast  =     0;
 p.y_Mast  =     0;
@@ -59,13 +59,13 @@ p.kM_RL   =    0.018000000000000;
 p.ku_RR   =    0.018000000000000;
 p.ku_RL   =    0.018000000000000;
 
-% Dämpfung der Motoren in SI-Einheiten:
+% Dï¿½mpfung der Motoren in SI-Einheiten:
 p.da_RR   =    2.754502048170128e-005;
 p.da_RL   =    2.825740066902684e-005;
 p.dL_RR   =    9.395611783418437e-008;
 p.dL_RL   =    9.594888964142192e-008;
 
-% Reibparameter des Mastes, des Armes sowie der Aufhängung in SI-Einheiten:
+% Reibparameter des Mastes, des Armes sowie der Aufhï¿½ngung in SI-Einheiten:
 p.da_Mast =    0.022000000000000;
 p.rC_Mast =    0.005000000000000;
 p.rH_Mast =    0.015000000000000;
@@ -79,7 +79,7 @@ p.rC_AH   =    1.000000000000000e-004;
 p.rH_AH   =    0.002000000000000;
 p.v0_AH   =    0.100000000000000;
 
-% Gravitationskonstante in m/s²:
+% Gravitationskonstante in m/sï¿½:
 p.g       =    9.810000000000000;
 
 % Winkelgeschwindigkeit-Kraft-Konstanten der Rotoren in SI-Einheiten:
@@ -95,4 +95,14 @@ q20     =  0.319187912478128;
 
 % Zuweisung der Anfangsbedingungen:
 initCond = [0,0,q20,0,0,0,0,0,0,0,0,0]';
+
+% Parameter fÃ¼r vereinfachtes Modell
+
+parSys.a1 = -0.11713e1;
+parSys.a2 = 0.3946e0;
+parSys.a3 = -0.5326e0;
+parSys.b1 = -0.6354e0;
+parSys.b2 = -0.6523e0;
+parSys.b3 = 0.46276e1;
+
 
