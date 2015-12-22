@@ -96,13 +96,3 @@ q20     =  0.319187912478128;
 % Zuweisung der Anfangsbedingungen:
 initCond = [0,0,q20,0,0,0,0,0,0,0,0,0]';
 
-% Parameter für vereinfachtes Modell
-
-parSys.a1 = -0.11713e1;
-parSys.a2 = 0.3946e0;
-parSys.a3 = -0.5326e0;
-parSys.b1 = -0.6354e0;
-parSys.b2 = -0.6523e0;
-parSys.b3 = 0.46276e1;
-
-

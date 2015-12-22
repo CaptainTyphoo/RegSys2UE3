@@ -1,4 +1,4 @@
-function Nulldynamik_S(block)
+function ROFLcopter_modell_S(block)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Beschreibung: Simulationsmodell eines RRP-Robotors.
@@ -112,13 +112,13 @@ function Derivatives(block)
   x = block.ContStates.Data;
   v1 = block.InputPort(1).Data;
   v2 = block.InputPort(2).Data;
-  parSys = block.DialogPrm(1).Data;  
-  a1 = parSys.a1;
-  a2 = parSys.a2;
-  a3 = parSys.a3;
-  b1 = parSys.b1;
-  b2 = parSys.b2;
-  b3 = parSys.b3;
+  sysPar = block.DialogPrm(1).Data;  
+  a1 = sysPar.a1;
+  a2 = sysPar.a2;
+  a3 = sysPar.a3;
+  b1 = sysPar.b1;
+  b2 = sysPar.b2;
+  b3 = sysPar.b3;
 
   % Variablen definieren f�r bessrer Code-Lesbarkeit
   q1 = x(1);
