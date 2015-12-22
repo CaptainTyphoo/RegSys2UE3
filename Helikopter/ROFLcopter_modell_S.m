@@ -66,7 +66,7 @@ function setup(block)
   block.NumContStates = 6;
   
   % Register dialog parameter
-  block.NumDialogPrms = 1; 
+  block.NumDialogPrms = 2; 
   
   % Port dimensions
   block.InputPort(1).Dimensions        = 1;
@@ -134,9 +134,6 @@ function Derivatives(block)
   x4p = v1 * b2 * cos(q3) + a1 * sin(q2) + a2 * cos(q2);
   x5p = omega3;
   x6p = v2 * b3 + a3 * cos(q2) * sin(q3);
-
-  
-  etap = [omegal * rl - omegam * rm 1 / Il * (-2 * (cr3 * epsilon ^ 3 + cr1 * epsilon) * rl - dl * omegal + Ml)];
 
   % Differentialgleichungen:
   dx(1) = x1p;
