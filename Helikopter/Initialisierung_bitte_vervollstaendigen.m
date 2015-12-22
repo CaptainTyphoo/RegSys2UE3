@@ -1,9 +1,9 @@
 %% Parameterdatei Helikopter
-%  Übung Regelungssysteme
+%  ï¿½bung Regelungssysteme
 %
-%  Ersteller: T.Glück
+%  Ersteller: T.Glï¿½ck
 %  Erstellt:  03.11.2009
-%  Änderungen: Boeck, Okt. 2010
+%  ï¿½nderungen: Boeck, Okt. 2010
 %
 %%
 clear all;
@@ -12,7 +12,7 @@ clc
 
 s=tf('s');
 
-%% Setzen der Systemparameter des vereinfachten und des vollständigen Modells
+%% Setzen der Systemparameter des vereinfachten und des vollstï¿½ndigen Modells
 
 %Abtastzeit
 Ta = 1e-3;
@@ -25,7 +25,7 @@ sysPar.b1 = -0.6354;
 sysPar.b2 = -0.6523;
 sysPar.b3 =  4.6276;
 
-% Systemparameter des vollständigen Modells
+% Systemparameter des vollstï¿½ndigen Modells
 set_parameter_vollstaendigesModell;
 
 %% Setzen der Reglerparameter - Bitte anpassen!
@@ -40,3 +40,26 @@ regPar.k1I = 1;
 regPar.k21 = 1;
 regPar.k20 = 1;
 regPar.k2I = 1;
+
+%% Parameter fÃ¼r Trajektorienplanung
+trajPar.beta1 = 0;
+trajPar.beta2 = 0;
+trajPar.beta3 = 0;
+trajPar.beta4 = 0;
+trajPar.beta5 = 126;
+trajPar.beta6 = -420;
+trajPar.beta7 = 540;
+trajPar.beta8 = -315;
+trajPar.beta9 = 70;
+
+q2T       = 0;
+Tq2_start = 0;
+Tq2_ende  = 5;
+
+q10       = 0;
+q1T       = 2*pi;
+Tq1_start = 5;
+Tq1_ende  = 15;
+
+
+
