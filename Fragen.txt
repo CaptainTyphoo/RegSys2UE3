@@ -1,3 +1,5 @@
 5.1) Ruhelagen ok ?
 5.3) Woher kommt der zweier in der Lyapunov Funktion
 5.10) Vorsteuerung kontinuierlich oder diskret?
+5.7) PI Regler eindrehen
+Helikopter Modelle umschaltbar machen

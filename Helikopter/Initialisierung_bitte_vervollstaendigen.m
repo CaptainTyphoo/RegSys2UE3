@@ -31,15 +31,20 @@ set_parameter_vollstaendigesModell;
 %% Setzen der Reglerparameter - Bitte anpassen!
 
 % Reglerparameter q1
-regPar.k13 = 1;
-regPar.k12 = 1;
-regPar.k11 = 1;
-regPar.k10 = 1;
-regPar.k1I = 1;
+lambda = -1;
+p=poly(lambda * eye(6));
+regPar.k13 = p(2);
+regPar.k12 = p(3);
+regPar.k11 = p(4);
+regPar.k10 = p(5);
+regPar.k1I = p(6);
+
 % Reglerparameter q2
-regPar.k21 = 1;
-regPar.k20 = 1;
-regPar.k2I = 1;
+lambda = -1;
+p=poly(lambda * eye(4));
+regPar.k21 = p(2);
+regPar.k20 = p(3);
+regPar.k2I = p(4);
 
 %% Parameter für Trajektorienplanung
 trajPar.beta1 = 0;
@@ -52,6 +57,7 @@ trajPar.beta7 = 540;
 trajPar.beta8 = -315;
 trajPar.beta9 = 70;
 
+q20       = q20;
 q2T       = 0;
 Tq2_start = 0;
 Tq2_ende  = 5;
