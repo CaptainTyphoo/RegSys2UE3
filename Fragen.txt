@@ -3,3 +3,4 @@
 5.10) Vorsteuerung kontinuierlich oder diskret?
 5.7) PI Regler eindrehen
 Helikopter Modelle umschaltbar machen
+Nulldynamik für Trajektorienplanung verwenden
