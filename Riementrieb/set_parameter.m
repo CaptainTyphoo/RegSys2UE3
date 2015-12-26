@@ -87,8 +87,14 @@ G = tf(sys_e_d);
 G1 = G(1,1)
 G2 = G(3,2)
 
-bode(G1)
+%bode(G1)
 %hold on;
 %bode(G2)
 
-d2c(G1,'tustin')
+%d2c(G1,'tustin')
+
+parRegomegam.Kp = 2;
+parRegomegam.Ki = 1;
+
+parRegid.Kp = 5;
+parRegid.Ki = 1;
