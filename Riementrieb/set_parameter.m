@@ -94,7 +94,7 @@ G2 = G(3,2)
 %d2c(G1,'tustin')
 
 parRegomegam.Kp = 2;
-parRegomegam.Ki = 1;
+parRegomegam.Ki = 2;
 
-parRegid.Kp = 5;
-parRegid.Ki = 1;
+parRegid.Kp = 8;
+parRegid.Ki = 3;
