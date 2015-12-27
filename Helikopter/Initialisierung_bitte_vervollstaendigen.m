@@ -31,7 +31,7 @@ set_parameter_vollstaendigesModell;
 %% Setzen der Reglerparameter - Bitte anpassen!
 
 % Reglerparameter q1
-lambda = -1;
+lambda = -2.0;
 p=poly(lambda * eye(6));
 regPar.k13 = p(2);
 regPar.k12 = p(3);
@@ -40,7 +40,7 @@ regPar.k10 = p(5);
 regPar.k1I = p(6);
 
 % Reglerparameter q2
-lambda = -1;
+lambda = -0.6;
 p=poly(lambda * eye(4));
 regPar.k21 = p(2);
 regPar.k20 = p(3);
