@@ -79,7 +79,7 @@ function Derivatives(block)
   u1 = block.InputPort(1).Data;
   Ml = block.InputPort(2).Data;
   params = block.DialogPrm(3).Data;
-  % Variablen definieren f?r bessrer Code-Lesbarkeit
+  
   u   = u1(1);
    
   x1  = x(1);

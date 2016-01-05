@@ -61,5 +61,16 @@ parReg.CCSFi = eye(2);
 parReg.DDSFi = zeros(2,1);
 parReg.ssSFi = ss(parReg.AASFi,parReg.BBSFi,parReg.CCSFi,parReg.DDSFi);
 
+%% PI Reglerentwurf
+Fehlerdynamik;
+parPI.a1 = R1d.a;
+parPI.b1 = R1d.b;
+parPI.c1 = R1d.c;
+parPI.d1 = R1d.d;
+parPI.a2 = R2d.a;
+parPI.b2 = R2d.b;
+parPI.c2 = R2d.c;
+parPI.d2 = R2d.d;
+
 
            
