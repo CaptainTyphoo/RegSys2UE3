@@ -25,6 +25,10 @@ sysPar.b1 = -0.6354;
 sysPar.b2 = -0.6523;
 sysPar.b3 =  4.6276;
 
+%Ruhelage des vereinfachten Modells
+q1 = 0;
+sysPar.xR = [q1,0,0.3249487013,0,0,0];
+
 % Systemparameter des vollständigen Modells
 set_parameter_vollstaendigesModell;
 
