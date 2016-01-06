@@ -1,5 +1,5 @@
 function Nulldynamik(block)
-%
+% Kommentare
 
 setup(block);
 

@@ -42,17 +42,23 @@ ue2 = 5;
 
 Gz = tf(sys_d);
 
-Tz1 = Rz1*Gz(3,2)/(1+Rz1*Gz(3,2));
+%geht nicht!
+%Tz2 = Rz2*Gz(1,1)/(1+Rz2*Gz(1,1));
+%Tz1 = Rz1*Gz(3,2)/(1+Rz1*Gz(3,2));
+
+
+
 T1 = R1*G_udid/(1+R1*G_udid);
 
-%Tz2 = Rz2*Gz(1,1)/(1+Rz2*Gz(1,1));
-%T2 = R2*G_uqwm/(1+R2*G_uqwm);
-Tz2 = feedback(Rz2*Gz(1,1),1);
-T2 = feedback(R2*G_uqwm,1);
+%die beiden Funktionen liefern (zum Glück) das gleiche :)
+T2 = minreal((R2*G_uqwm)/(1+R2*G_uqwm));
+%T2 = feedback(R2*G_uqwm,1);
 
-%Tz1 = c2d(T1,Ta,'tustin');
-%Tz2 = c2d(T2,Ta,'tustin');
-% 
+
+Tz1 = c2d(T1,Ta,'tustin');
+Tz2 = c2d(T2,Ta,'tustin');
+%Tz2 = feedback(Rz2*Gz(1,1),1);
+ 
 figure(1)
 step(Tz1);
 figure(2)
