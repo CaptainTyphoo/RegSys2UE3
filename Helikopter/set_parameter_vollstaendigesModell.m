@@ -96,3 +96,4 @@ q20     =  0.319187912478128;
 % Zuweisung der Anfangsbedingungen:
 initCond = [0,0,q20,0,0,0,0,0,0,0,0,0]';
 
+
