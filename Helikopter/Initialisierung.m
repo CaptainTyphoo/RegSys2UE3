@@ -29,10 +29,9 @@ sysPar.b3 =  4.6276;
 
 %Ruhelage des vereinfachten Modells
 q10e = 0;
-q20e=0.3249487013;
+q20e=0.319187912478128;%0.3249487013;
 sysPar.xR = [q10e,0,q20e,0,0,0];
 %sysPar.xR = [q1,0,0.5,0,0,0];
-
 
 q1d=2*pi;
 q2d=0;
