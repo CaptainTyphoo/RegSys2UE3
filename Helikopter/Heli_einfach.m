@@ -1,5 +1,11 @@
 function Heli_einfach(block)
-% Kommentare
+
+% Kontinuierliches Modell des vereinfachten Helikopters
+% Eingang: u = [v1,v2]
+% Zustand: x = [q1,q1p,q2,q2p,q3,q3p]
+% Ausgang: y = x
+
+% Wichtig: ode113 verwenden (ode45 ist instabil)
 
 setup(block);
 
@@ -48,6 +54,8 @@ function setup(block)
 
 
 function InitConditions(block)
+  
+  % Startwerte definieren
   x_0 = block.DialogPrm(1).Data;   
   
   x0(1) = x_0(1);
@@ -58,55 +66,29 @@ function InitConditions(block)
   x0(6) = x_0(6);
 
   block.ContStates.Data=x0;
+ 
+  
   
 function Output(block)
+  
+% Ausgang = Zustand
+
   x = block.ContStates.Data;
-  %u1 = block.InputPort(1).Data;
+  
   block.OutputPort(1).Data = x(1);
   block.OutputPort(2).Data = x(2);
   block.OutputPort(3).Data = x(3);
   block.OutputPort(4).Data = x(4);
   block.OutputPort(5).Data = x(5);
   block.OutputPort(6).Data = x(6); 
-  % Variablen definieren f?r bessere Code-Lesbarkeit
-  %u   = u1(1);
 
-%   x1  = x(1);
-%   x2  = x(2);
-%   x3  = x(3);
-%   x4  = x(4);
-%   x5  = x(5);
-%   x6  = x(6);
-%   
-%   % Ausgangsgr??en:
-%   %x1 = epsilon
-%   y1(1) = x1;
-%   y1(2) = x2;
-%   y1(3) = x3;
-%   y1(4) = x4;
-%   y1(5) = x5;
-%   y1(6) = x6;
-%  
-  
-  
-%   block.OutputPort(1).Data = y1(1);
-%   block.OutputPort(2).Data = y1(2);
-%   block.OutputPort(3).Data = y1(3);
-%   block.OutputPort(4).Data = y1(4);
-%   block.OutputPort(5).Data = y1(5);
-%   block.OutputPort(6).Data = y1(6);
-%   block.OutputPort(3).Data = y3;
-  
 
 
 
 function Derivatives(block)
 
-  x = block.ContStates.Data;
-  v1 = block.InputPort(1).Data;
-  v2 = block.InputPort(2).Data;
-
-   
+  % Zustände, Eingänge, Parameter laden
+  x = block.ContStates.Data; 
   x1  = x(1);
   x2  = x(2);
   x3  = x(3);
@@ -114,14 +96,16 @@ function Derivatives(block)
   x5  = x(5);
   x6  = x(6);
   
-  params =  block.DialogPrm(2).Data;
-  
+  params =  block.DialogPrm(2).Data; 
   a1 = params(1);
   a2 = params(2);
   a3 = params(3);
   b1 = params(4);
   b2 = params(5);
   b3 = params(6);
+  
+  v1 = block.InputPort(1).Data;
+  v2 = block.InputPort(2).Data;
   
 
   % Differentialgleichungen:
@@ -132,7 +116,6 @@ function Derivatives(block)
   dx(5) = x6;
   dx(6) = a3 * cos(x3) * sin(x5) + b3 * v2;
   
-
    
   block.Derivatives.Data=dx;          
 
