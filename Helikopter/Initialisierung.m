@@ -1,9 +1,9 @@
 %% Parameterdatei Helikopter
-%  Übung Regelungssysteme
+%  ?bung Regelungssysteme
 %
-%  Ersteller: T.Glück
+%  Ersteller: T.Gl?ck
 %  Erstellt:  03.11.2009
-%  Änderungen: Boeck, Okt. 2010
+%  ?nderungen: Boeck, Okt. 2010
 %
 %%
 clear all;
@@ -12,7 +12,7 @@ clc
 
 s=tf('s');
 
-%% Setzen der Systemparameter des vereinfachten und des vollständigen Modells
+%% Setzen der Systemparameter des vereinfachten und des vollst?ndigen Modells
 
 %Abtastzeit
 Ta = 1e-3;
@@ -32,7 +32,7 @@ q10e = 0;
 q20e=0.319187912478128;  %0.3249487013 laut unserem Maple;
 sysPar.xR = [q10e,0,q20e,0,0,0];
 
-%% Parameter für Trajektorienplanung
+%% Parameter f?r Trajektorienplanung
 
 %Anfangswerte = Ruhelagen
 
@@ -57,19 +57,21 @@ sysPar.beta9 =   70;
 
 
 
-%% Systemparameter des vollständigen Modells
+%% Systemparameter des vollst?ndigen Modells
 set_parameter_vollstaendigesModell;
 
 %% Setzen der Reglerparameter - Bitte anpassen!
 
 % Reglerparameter q1
-regPar.k13 = 1;
-regPar.k12 = 1;
-regPar.k11 = 1;
-regPar.k10 = 1;
-regPar.k1I = 1;
+p1 = poly([-10,-10,-10,-10,-10]);
+regPar.k13 = p1(2);
+regPar.k12 = p1(3);
+regPar.k11 = p1(4);
+regPar.k10 = p1(5);
+regPar.k1I = p1(6);
 
+p2 = poly([-10,-10,-10]);
 % Reglerparameter q2
-regPar.k21 = 1;
-regPar.k20 = 1;
-regPar.k2I = 1;
+regPar.k21 = p2(2);
+regPar.k20 = p2(3);
+regPar.k2I = p2(4);
