@@ -63,14 +63,15 @@ set_parameter_vollstaendigesModell;
 %% Setzen der Reglerparameter - Bitte anpassen!
 
 % Reglerparameter q1
-p1 = poly([-10,-10,-10,-10,-10]);
+
+p1 = poly([-1.5,-1.5,-1.5,-1.5,-1.5]);
 regPar.k13 = p1(2);
 regPar.k12 = p1(3);
 regPar.k11 = p1(4);
 regPar.k10 = p1(5);
 regPar.k1I = p1(6);
 
-p2 = poly([-10,-10,-10]);
+p2 = poly([-1.5,-1.5,-1.5]);
 % Reglerparameter q2
 regPar.k21 = p2(2);
 regPar.k20 = p2(3);
