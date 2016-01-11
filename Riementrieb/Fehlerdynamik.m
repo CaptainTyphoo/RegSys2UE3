@@ -59,10 +59,7 @@ Tz1 = c2d(T1,Ta,'tustin');
 Tz2 = c2d(T2,Ta,'tustin');
 %Tz2 = feedback(Rz2*Gz(1,1),1);
  
-figure(1)
-step(Tz1);
-figure(2)
-step(Tz2);
+
 %step(feedback(R2*G_uqwm,1));
 
 R1d = ss(Rz1);

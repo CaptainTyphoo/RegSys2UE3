@@ -7,7 +7,7 @@ setup(block);
 function setup(block)
   
   % Register number of input and output ports
-  block.NumInputPorts  = 2;
+  block.NumInputPorts  = 1;
   block.NumOutputPorts = 2;
   
   % Register number of continuous states
@@ -20,9 +20,6 @@ function setup(block)
   block.InputPort(1).Dimensions        = 3;
   block.InputPort(1).SamplingMode = 'Sample';
   block.InputPort(1).DirectFeedthrough = false;
-  block.InputPort(2).Dimensions        = 1;
-  block.InputPort(2).SamplingMode = 'Sample';
-  block.InputPort(2).DirectFeedthrough = false;
   
   block.OutputPort(1).Dimensions       = 1;
   block.OutputPort(1).SamplingMode = 'Sample';  
@@ -77,7 +74,7 @@ function Derivatives(block)
 
   x = block.ContStates.Data;
   u1 = block.InputPort(1).Data;
-  Ml = block.InputPort(2).Data;
+  Ml = 0;
   params = block.DialogPrm(3).Data;
   
   u   = u1(1);
