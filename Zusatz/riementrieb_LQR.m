@@ -11,7 +11,7 @@ rm  = 0.025;    %Radius Riemenscheibe Motor
 Rm  = 1.388;    %Widerstand PSM
 Lm  = 1.475e-3; %Induktivität PSM
 p   = 2.0;      %Polpaarzahl PSM
-Phi = 2.715e-2; %Fluss Permanentmagnet PSM
+Phi_m = 2.715e-2; %Fluss Permanentmagnet PSM
 
 Ta = 0.1e-3;
 
@@ -23,11 +23,11 @@ N = zeros(7,2);
 %desired states
 wm_d = 1000/60*2*pi;
 id_d = 0.1;
-iq_d = 0.2e1 / 0.3e1 * wm_d * (dl * rm ^ 2 + dm * rl ^ 2) / Phi / p / rl ^ 2;
+iq_d = 0.2e1 / 0.3e1 * wm_d * (dl * rm ^ 2 + dm * rl ^ 2) / Phi_m / p / rl ^ 2;
 Fr = -dl * rm * wm_d / rl ^ 2 / 0.2e1;
 wl_d = rm * wm_d / rl;
-uq_d = -wm_d * (0.9e1 * Lm * Phi * id_d * p ^ 2 * rl ^ 2 - 0.6e1 * Phi ^ 2 * p ^ 2 * rl ^ 2 - 0.4e1 * Rm * dl * rm ^ 2 - 0.4e1 * Rm * dm * rl ^ 2) / Phi / p / rl ^ 2 / 0.6e1;
-ud_d = (Lm * dl * rm ^ 2 * wm_d ^ 2 + Lm * dm * rl ^ 2 * wm_d ^ 2 + Phi * Rm * id_d * rl ^ 2) / Phi / rl ^ 2;
+uq_d = -wm_d * (0.9e1 * Lm * Phi_m * id_d * p ^ 2 * rl ^ 2 - 0.6e1 * Phi_m ^ 2 * p ^ 2 * rl ^ 2 - 0.4e1 * Rm * dl * rm ^ 2 - 0.4e1 * Rm * dm * rl ^ 2) / Phi_m / p / rl ^ 2 / 0.6e1;
+ud_d = (Lm * dl * rm ^ 2 * wm_d ^ 2 + Lm * dm * rl ^ 2 * wm_d ^ 2 + Phi_m * Rm * id_d * rl ^ 2) / Phi_m / rl ^ 2;
 
 %syms e
 %lsg = double(solve(cr1*e+cr3*e^3-Fr,e));
@@ -38,24 +38,25 @@ e_d = lsg(imag(lsg)==0);
 
 
 %aus Maple
-Phi = [1 - Ta * dm / I_m 0.3e1 / 0.2e1 * Ta * Phi * p / I_m 0 (Ta * (12 * cr3 * e_d ^ 2 * rm + 4 * cr1 * rm) / I_m) / 0.2e1 0 0 0; (Ta * (3 * Lm * id_d * p - 2 * Phi * p) / Lm) / 0.3e1 0.1e1 - 0.2e1 / 0.3e1 * Ta * Rm / Lm Ta * p * wm_d 0 0 0 0; -Ta * iq_d * p -Ta * p * wm_d 0.1e1 - 0.2e1 / 0.3e1 * Ta * Rm / Lm 0 0 0 0; -Ta * rm 0 0 1 Ta * rl 0 0; 0 0 0 -Ta * (6 * cr3 * e_d ^ 2 * rl + 2 * cr1 * rl) / I_l 1 - Ta * dl / I_l 0 0; Ta 0 0 0 0 1 0; 0 0 Ta 0 0 0 1;];
+Phi_m = [1 - Ta * dm / I_m 0.3e1 / 0.2e1 * Ta * Phi_m * p / I_m 0 (Ta * (12 * cr3 * e_d ^ 2 * rm + 4 * cr1 * rm) / I_m) / 0.2e1 0 0 0; (Ta * (3 * Lm * id_d * p - 2 * Phi_m * p) / Lm) / 0.3e1 0.1e1 - 0.2e1 / 0.3e1 * Ta * Rm / Lm Ta * p * wm_d 0 0 0 0; -Ta * iq_d * p -Ta * p * wm_d 0.1e1 - 0.2e1 / 0.3e1 * Ta * Rm / Lm 0 0 0 0; -Ta * rm 0 0 1 Ta * rl 0 0; 0 0 0 -Ta * (6 * cr3 * e_d ^ 2 * rl + 2 * cr1 * rl) / I_l 1 - Ta * dl / I_l 0 0; Ta 0 0 0 0 1 0; 0 0 Ta 0 0 0 1;];
 Gamma = [0 0; 0.2e1 / 0.3e1 * Ta / Lm 0; 0 0.2e1 / 0.3e1 * Ta / Lm; 0 0; 0 0; 0 0; 0 0;];
 
 %discrete Riccati equation
-[S,L,G] = dare(Phi,Gamma,Q,R);
+[S,L,G] = dare(Phi_m,Gamma,Q,R);
 %P_sym = 1/2*(P+P');
 
-%lqr Entwurf
-%[K,S,E] = dlqr(Phi,Gamma,Q,R,N);
-x_des = [7,N]
-P(N)=S
 
-for i=(N-1):-1:0
-    
-    Phi = Phi mit x_des(i)...
-    K(i)=.... P(i+1) ... Phi
-    P(i)=-.. P(i+1) ... Phi
-    
-    
-end
+% %lqr Entwurf
+% %[K,S,E] = dlqr(Phi,Gamma,Q,R,N);
+% x_des = [7,N]
+% P(N)=S
+% 
+% for i=(N-1):-1:0
+%     
+%     Phi_m = Phi_m mit x_des(i)...
+%     K(i)=.... P(i+1) ... Phi
+%     P(i)=-.. P(i+1) ... Phi
+%     
+%     
+% end
     
