@@ -72,5 +72,8 @@ parPI.b2 = R2d.b;
 parPI.c2 = R2d.c;
 parPI.d2 = R2d.d;
 
+%sim('get_phi.slx',10);
+load('Phi_out.mat');
+riementrieb_LQR;
 
            
