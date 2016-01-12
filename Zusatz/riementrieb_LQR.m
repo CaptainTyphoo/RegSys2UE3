@@ -45,18 +45,24 @@ Gamma = [0 0; 0.2e1 / 0.3e1 * Ta / Lm 0; 0 0.2e1 / 0.3e1 * Ta / Lm; 0 0; 0 0; 0 
 [S,L,G] = dare(Phi_m,Gamma,Q,R);
 %P_sym = 1/2*(P+P');
 
+N=length(Phi_out.Data);
 
-% %lqr Entwurf
-% %[K,S,E] = dlqr(Phi,Gamma,Q,R,N);
-% x_des = [7,N]
-% P(N)=S
-% 
-% for i=(N-1):-1:0
-%     
-%     Phi_m = Phi_m mit x_des(i)...
-%     K(i)=.... P(i+1) ... Phi
-%     P(i)=-.. P(i+1) ... Phi
-%     
-%     
-% end
+%lqr Entwurf
+%[K,S,E] = dlqr(Phi,Gamma,Q,R,N);
+
+P(:,:,N+1)=S;
+
+
+
+for i=(N):-1:1
+    
+    Phi_m = Phi_out.Data(:,:,i);
+
+    K(:,:,i)= -(R+Gamma'*P(:,:,i+1)*Gamma)^(-1)*(N+Gamma'*P(:,:,i+1)*Phi_m);
+
+    P(:,:,i)=(Q+(Phi_m')*P(:,:,i+1)*Phi_m)-(N+Gamma'*P(:,:,i+1)*Phi_m)'*((R+Gamma'*P(:,:,i+1)*Gamma)^(-1))*(N+Gamma'*P(:,:,i+1)*Phi_m);
+   
+    P(:,:,i)=0.5*(P(:,:,i)+P(:,:,i)');
+    
+end
     

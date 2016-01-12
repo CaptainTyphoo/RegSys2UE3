@@ -73,4 +73,7 @@ parPI.c2 = R2d.c;
 parPI.d2 = R2d.d;
 
 
+    load('Phi_out.mat');
+    riementrieb_LQR;
+
            
