@@ -6,12 +6,8 @@ Ae = [-dm / I_m 0.3e1 / 0.2e1 * Phi * p / I_m 0 0.2e1 * cr1 * rm / I_m 0; -0.2e1
 
 b = 2/(3*Lm)*[0 0;1 0;0 1;0 0;0 0];
 
-c = eye(5);
-c(2,2) = 0;
-c(4,4) = 0;
-c(5,5) = 0;
-
-d = zeros(5,2);
+c = [1,0,0,0,0;0,0,1,0,0];
+d = zeros(2,2);
 
 sys_c = ss(Ae,b,c,d);
 sys_d = c2d(sys_c,Ta);
@@ -22,10 +18,10 @@ Gq = tf(sys_tustin);
 % Frequenzkennlinienverfahren
 
 
-%Übertragungsfktn von uq zu wm
+%?bertragungsfktn von uq zu wm
 G_uqwm = Gq(1,1);
-%Übertragungsfunktion von ud zu id
-G_udid = Gq(3,2);
+%?bertragungsfunktion von ud zu id
+G_udid = Gq(2,2);
 
 %erster PI Regler
 omega_0 = 2/Ta;
@@ -50,7 +46,7 @@ Gz = tf(sys_d);
 
 T1 = R1*G_udid/(1+R1*G_udid);
 
-%die beiden Funktionen liefern (zum Glück) das gleiche :)
+%die beiden Funktionen liefern (zum Gl?ck) das gleiche :)
 T2 = minreal((R2*G_uqwm)/(1+R2*G_uqwm));
 %T2 = feedback(R2*G_uqwm,1);
 
