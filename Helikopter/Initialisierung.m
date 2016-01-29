@@ -64,8 +64,8 @@ set_parameter_vollstaendigesModell;
 
 % Reglerparameter q1
 
-%p1 = poly([-1.8,-0.1,-3.6,-0.8,-0.4]);
-p1 = poly([-1.5,-1.5,-1.5,-1.5,-1.5]);
+p1 = poly([-1.8,-0.1,-3.6,-0.8,-0.4]);
+%p1 = poly([-1.5,-1.5,-1.5,-1.5,-1.5]);
 
 regPar.k13 = p1(2);
 regPar.k12 = p1(3);
@@ -73,8 +73,8 @@ regPar.k11 = p1(4);
 regPar.k10 = p1(5);
 regPar.k1I = p1(6);
 
-%p2 = poly([-1.3,-1.9,-0.5]);
-p2 = poly([-1.5,-1.5,-1.5]);
+p2 = poly([-1.3,-1.9,-0.5]);
+%p2 = poly([-1.5,-1.5,-1.5]);
 
 % Reglerparameter q2
 regPar.k21 = p2(2);
